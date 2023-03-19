@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item
+    android:id="@+id/ic_found"
+    android:title="FOUND_ITEMS"
+    android:icon="@drawable/ic_found1"
+    ></item>
+    <item
+        android:id="@+id/ic_lost"
+        android:title="LOST_ITEMS"
+        android:icon="@drawable/ic_baseline_not_listed_location_24"
+        ></item>
+    <item
+        android:id="@+id/items_recovered"
+        android:title="ITEMS_RECOVERED"
+        android:icon="@drawable/ic_emoji"></item>
+</menu>

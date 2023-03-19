@@ -4,48 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".intro"
+    tools:context="activities.intro"
     android:orientation="vertical"
-    android:background="@color/white">
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="70dp"
-    android:text="lost and found"
-    android:textColor="@color/colorPrimary"
-    android:textStyle="bold"
-    android:gravity="center"
-    android:textSize="55sp"
-    android:layout_marginBottom="10dp"
-    android:layout_marginTop="30dp"></TextView>
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/img_2" />
-
-    <TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Let's Get Started"
-    android:textColor="@color/black"
-    android:gravity="center"
-    android:textSize="35sp"
-    android:layout_marginTop="20dp"
-    ></TextView>
+    android:background="@drawable/ui2"
+    >
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:text="Now you can find your lost items in the campus and return the unknown items you found in the campus to the right person."></TextView>
+        android:text="WELCOME"
+        android:textAlignment="center"
+        android:textSize="70dp"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"></TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/ic_icon1"></TextView>
 
     <Button
         android:id="@+id/button_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="0dp"
         android:layout_marginRight="40dp"
         android:background="@drawable/shape_button_rounded"
         android:gravity="center"
