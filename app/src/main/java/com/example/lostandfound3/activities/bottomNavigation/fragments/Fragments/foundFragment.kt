@@ -5,7 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.lostandfound3.R
+import com.example.lostandfound3.activities.models.FetchLost
+import com.example.lostandfound3.activities.models.Fetchfound
+import com.example.lostandfound3.activities.models.MyAdapterFound
+import com.example.lostandfound3.activities.models.MyAdapterLost
+import com.google.firebase.database.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +29,10 @@ class foundFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var usersArrayList:ArrayList<Fetchfound>
+    private lateinit var database: DatabaseReference
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,5 +68,31 @@ class foundFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?){
+        super.onViewCreated(view, savedInstanceState)
+        recyclerView=view.findViewById(R.id.Recyclerview_found)
+        recyclerView.layoutManager=LinearLayoutManager(context)
+        recyclerView.setHasFixedSize(true)
+        usersArrayList= arrayListOf()
+        database=FirebaseDatabase.getInstance().getReference("found")
+        database.addValueEventListener(object:ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()){
+                    for (datasnapshot in  snapshot.children){
+                        val item=datasnapshot.getValue(Fetchfound::class.java)
+                        if (item!= null) {
+                            usersArrayList.add(item)
+                        }
+                    }
+                    recyclerView.adapter = context?.let { MyAdapterFound(usersArrayList, it) }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+                Toast.makeText(context,error.toString(),Toast.LENGTH_LONG).show()
+            }
+        })
     }
 }

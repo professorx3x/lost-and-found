@@ -44,21 +44,6 @@ class foundActivity : AppCompatActivity() {
                 iv_user_image.setImageURI(mSelectedImageFileUri2).toString()
                 uploadUserImage()
             }
-
-            val item_name2=binding.etItemName2.text.toString()
-            val foundwhere=binding.foundWhere.text.toString()
-            val claim1=binding.claim1.text.toString()
-            database=FirebaseDatabase.getInstance().getReference("found")
-            val item_image2=findViewById<CircleImageView>(id.iv_board_image).toString()
-            val user= found(item_image2,item_name2, foundwhere, claim1)
-            database.child(item_name2).setValue(user).addOnSuccessListener{
-                binding.etItemName2.text?.clear()
-                binding.foundWhere.text?.clear()
-                binding.claim1.text?.clear()
-                finish()
-                Toast.makeText(this,"added successfully",Toast.LENGTH_SHORT).show()
-
-            }
         }
         binding.ivBoardImage.setOnClickListener {
             if (ContextCompat.checkSelfPermission(
@@ -118,7 +103,9 @@ class foundActivity : AppCompatActivity() {
         return MimeTypeMap.getSingleton().getExtensionFromMimeType(contentResolver.getType(uri!!))
     }
     private fun uploadUserImage(){
+
         if(mSelectedImageFileUri2!=null){
+
             val sRef= FirebaseStorage.getInstance().reference.child("lost_image"+ System.currentTimeMillis()+"."+getFileExtension(mSelectedImageFileUri2))
             sRef.putFile(mSelectedImageFileUri2!!).addOnSuccessListener{
                     taskSnapshot->
@@ -129,9 +116,22 @@ class foundActivity : AppCompatActivity() {
                 taskSnapshot.metadata!!.reference!!.downloadUrl.addOnSuccessListener{
                         uri->
                     Log.i("Downloadable Image URL", uri.toString())
+
                     mProfileImageURL=uri.toString()
                     found().item_image2=uri.toString()
-                }
+                    val item_name2=binding.etItemName2.text.toString()
+                    val foundwhere=binding.foundWhere.text.toString()
+                    val claim1=binding.claim1.text.toString()
+                    database=FirebaseDatabase.getInstance().getReference("found")
+
+                    val user= found(mProfileImageURL,item_name2, foundwhere, claim1)
+                    database.child(item_name2).setValue(user).addOnSuccessListener{
+                        binding.etItemName2.text?.clear()
+                        binding.foundWhere.text?.clear()
+                        binding.claim1.text?.clear()
+                        finish()
+                        Toast.makeText(this,"added successfully",Toast.LENGTH_SHORT).show()
+                }}
 
             }.addOnFailureListener{
                     exception->

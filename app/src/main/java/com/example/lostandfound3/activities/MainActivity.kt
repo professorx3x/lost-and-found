@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide
 import com.example.lostandfound3.R
 import com.example.lostandfound3.activities.bottomNavigation.fragments.Fragments.foundFragment
 import com.example.lostandfound3.activities.bottomNavigation.fragments.Fragments.lostFragment
-import com.example.lostandfound3.activities.bottomNavigation.fragments.Fragments.recoverdFragment
+import com.example.lostandfound3.activities.bottomNavigation.fragments.Fragments.recoveredFragment
 import com.example.lostandfound3.activities.models.User
 import com.example.lostandfound3.firebase.FirebaseStore
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -29,7 +29,7 @@ class MainActivity :AppCompatActivity(), NavigationView.OnNavigationItemSelected
 
         val foundFragment=foundFragment()
         val lostFragment=lostFragment()
-        val recoveredFragment=recoverdFragment()
+        val recoveredFragment= recoveredFragment()
 
         makeCurrentFragment(foundFragment)
         val bottomnavigation:BottomNavigationView=findViewById(R.id.bottom_navigation)
@@ -54,7 +54,6 @@ val fragmentManager=supportFragmentManager
         fragmentTransaction.replace(R.id.fl_wrapper,fragment)
         fragmentTransaction.commit()
     }
-
     private fun setupActionBar(){
         val tool_main_activity:androidx.appcompat.widget.Toolbar=findViewById(R.id.toolbar_main_activity)
         setSupportActionBar(tool_main_activity)

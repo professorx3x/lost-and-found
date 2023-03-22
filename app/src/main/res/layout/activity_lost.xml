@@ -40,18 +40,11 @@
                 android:orientation="vertical"
                 android:padding="@dimen/card_view_layout_content_padding">
 
-                <ImageView
-                    android:layout_width="175dp"
-                    android:layout_height="175dp"
-                    android:background="@drawable/ic_item_images"></ImageView>
-                <Button
-                    android:id="@+id/select_lost"
-                    android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:background="@drawable/shape_button_rounded"
-                    android:text="SELECT IMAGE"
-                    android:textColor="@color/white"
-                    ></Button>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_board_image1"
+                    android:layout_width="@dimen/board_image_size"
+                    android:layout_height="@dimen/board_image_size"
+                    android:src="@drawable/ic_item_images" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"

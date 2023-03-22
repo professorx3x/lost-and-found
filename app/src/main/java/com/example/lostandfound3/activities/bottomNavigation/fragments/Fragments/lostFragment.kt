@@ -1,11 +1,23 @@
 package com.example.lostandfound3.activities.bottomNavigation.fragments.Fragments
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.lostandfound3.R
+import com.example.lostandfound3.activities.models.FetchLost
+import com.example.lostandfound3.activities.models.Fetchfound
+import com.example.lostandfound3.activities.models.MyAdapterFound
+import com.example.lostandfound3.activities.models.MyAdapterLost
+import com.google.firebase.database.*
+import org.w3c.dom.Text
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -14,15 +26,16 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [lostFragment.newInstance] factory method to
+ * Use the [foundFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
 class lostFragment : Fragment() {
-
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var usersArrayList:ArrayList<FetchLost>
+    private lateinit var database: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -35,9 +48,8 @@ class lostFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //Inflate the layout for this fragment
+        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_lost, container, false)
-
     }
 
     companion object {
@@ -47,7 +59,7 @@ class lostFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment lostFragment.
+         * @return A new instance of fragment foundFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
@@ -60,4 +72,30 @@ class lostFragment : Fragment() {
             }
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        recyclerView=view.findViewById(R.id.Recyclerview_lost)
+        recyclerView.layoutManager=LinearLayoutManager(context)
+        recyclerView.setHasFixedSize(true)
+        usersArrayList= arrayListOf<FetchLost>()
+        database=FirebaseDatabase.getInstance().getReference("lost1")
+        database.addValueEventListener(object:ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()){
+                    for (datasnapshot in  snapshot.children){
+                        val item=datasnapshot.getValue(FetchLost::class.java)
+                        if (item!= null) {
+                            usersArrayList.add(item)
+                        }
+                    }
+                    recyclerView.adapter = context?.let { MyAdapterLost(usersArrayList, it) }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+                Toast.makeText(context,error.toString(),Toast.LENGTH_LONG).show()
+            }
+        })
+    }
 }
