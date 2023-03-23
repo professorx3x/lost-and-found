@@ -23,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import java.io.IOException
 
-class recovered : AppCompatActivity() {
+class recovered : BaseActivity() {
     private var mSelectedImageFileUri2: Uri?=null
     private var mProfileImageURL:String=""
     private lateinit var binding:ActivityRecoveredBinding
@@ -34,6 +34,7 @@ class recovered : AppCompatActivity() {
         binding= ActivityRecoveredBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.ADD3.setOnClickListener {
+            showProgressDialog("please wait")
             if(mSelectedImageFileUri2!=null){
                 val iv_user_image:de.hdodenhof.circleimageview.CircleImageView=findViewById(R.id.iv_board_image3)
                 iv_user_image.setImageURI(mSelectedImageFileUri2).toString()

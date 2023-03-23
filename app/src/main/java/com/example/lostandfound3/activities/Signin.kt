@@ -34,9 +34,10 @@ class signin : BaseActivity() {
        val email:String = semail.text.toString().trim{ it <= ' '}
        val password:String = spassword.text.toString().trim{ it <= ' '}
        if(validateForms(email,password)){
-
+showProgressDialog("please wait")
            auth.signInWithEmailAndPassword(email, password)
-               .addOnCompleteListener(this) { task ->(print("logging in the user"))
+               .addOnCompleteListener(this) { task ->
+                   hideProgressDialog()
 
                    if (task.isSuccessful) {
                        // Sign in success, update UI with the signed-in user's information
@@ -83,7 +84,7 @@ class signin : BaseActivity() {
         setSupportActionBar(tool_my_profile_activity)
         val actionBar=supportActionBar
         if (actionBar!=null){
-            actionBar.setDefaultDisplayHomeAsUpEnabled(true)
+            actionBar.setDisplayHomeAsUpEnabled(true)
             actionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24)
             actionBar?.title="SIGN_IN"}
         tool_my_profile_activity.setNavigationOnClickListener {

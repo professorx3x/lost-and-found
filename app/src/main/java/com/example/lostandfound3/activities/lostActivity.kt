@@ -38,6 +38,7 @@ class lostActivity : BaseActivity() {
         binding= ActivityLostBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.ADD1.setOnClickListener {
+            showProgressDialog("please wait")
             if(mSelectedImageFileUri2!=null){
                 val iv_user_image:de.hdodenhof.circleimageview.CircleImageView=findViewById(R.id.iv_board_image1)
                 iv_user_image.setImageURI(mSelectedImageFileUri2).toString()

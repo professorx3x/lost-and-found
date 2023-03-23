@@ -28,7 +28,7 @@ import com.google.firebase.storage.StorageReference
 import de.hdodenhof.circleimageview.CircleImageView
 import java.io.IOException
 
-class foundActivity : AppCompatActivity() {
+class foundActivity :BaseActivity() {
     private var mSelectedImageFileUri2:Uri?=null
     private var mProfileImageURL:String=""
     private lateinit var binding:ActivityFoundBinding
@@ -39,6 +39,7 @@ class foundActivity : AppCompatActivity() {
         binding=ActivityFoundBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.ADD2.setOnClickListener {
+            showProgressDialog("please wait")
             if(mSelectedImageFileUri2!=null){
                 val iv_user_image:de.hdodenhof.circleimageview.CircleImageView=findViewById(id.iv_board_image)
                 iv_user_image.setImageURI(mSelectedImageFileUri2).toString()

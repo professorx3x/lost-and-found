@@ -54,9 +54,11 @@ setupActionBar()
         val mobile:String = et_mobile.text.toString().trim{ it <= ' '}
 
         if (validateForm(name,email,password,mobile)){
+            showProgressDialog("please wait")
            FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener(
                {
-                   task->(print("registering the user"))
+                   task->
+                   hideProgressDialog()
                   if(task.isSuccessful){
                       val firebaseUser:FirebaseUser=task.result!!.user!!
                       val registeredEmail=firebaseUser.email!!
@@ -104,12 +106,11 @@ setupActionBar()
         setSupportActionBar(tool_my_profile_activity)
         val actionBar=supportActionBar
         if (actionBar!=null){
-            actionBar.setDefaultDisplayHomeAsUpEnabled(true)
-            actionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24)
-            actionBar?.title="SIGN_UP"}
+            actionBar.setDisplayHomeAsUpEnabled(true)
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24)
+            actionBar.title="SIGN_UP"}
         tool_my_profile_activity.setNavigationOnClickListener {
             onBackPressed()
-
         }
     }
 }

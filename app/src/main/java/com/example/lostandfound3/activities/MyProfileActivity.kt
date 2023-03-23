@@ -57,11 +57,14 @@ class MyProfileActivity : BaseActivity() {
         }
         val btn_update:Button=findViewById(R.id.btn_update)
         btn_update.setOnClickListener {
+            showProgressDialog("please wait")
             if(mSelectedImageFileUri!=null){
+
                 val iv_user_image:de.hdodenhof.circleimageview.CircleImageView=findViewById(R.id.iv_profile_user_image)
                 iv_user_image.setImageURI(mSelectedImageFileUri).toString()
                 uploadUserImage()
             } else{
+              
                 updateUserProfileData()
             }
         }
