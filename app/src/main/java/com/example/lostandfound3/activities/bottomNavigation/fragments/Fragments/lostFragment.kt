@@ -1,23 +1,16 @@
 package com.example.lostandfound3.activities.bottomNavigation.fragments.Fragments
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.lostandfound3.R
 import com.example.lostandfound3.activities.models.FetchLost
-import com.example.lostandfound3.activities.models.Fetchfound
-import com.example.lostandfound3.activities.models.MyAdapterFound
 import com.example.lostandfound3.activities.models.MyAdapterLost
 import com.google.firebase.database.*
-import org.w3c.dom.Text
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -49,7 +42,7 @@ class lostFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_lost, container, false)
+        return inflater.inflate(com.example.lostandfound3.R.layout.fragment_lost, container, false)
     }
 
     companion object {
@@ -74,7 +67,7 @@ class lostFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView=view.findViewById(R.id.Recyclerview_lost)
+        recyclerView=view.findViewById(com.example.lostandfound3.R.id.Recyclerview_lost)
         recyclerView.layoutManager=LinearLayoutManager(context)
         recyclerView.setHasFixedSize(true)
         usersArrayList= arrayListOf<FetchLost>()

@@ -4,9 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.example.lostandfound3.R
 import com.example.lostandfound3.activities.MainActivity
 import com.example.lostandfound3.firebase.FirebaseStore
+import com.example.lostandfound3.R
 
 class splashscreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +21,6 @@ class splashscreen : AppCompatActivity() {
                 }else{
                startActivity(Intent(this, activities.intro::class.java))
                 finish()}
-            },2500)
+            },1)
     }
 }

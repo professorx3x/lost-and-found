@@ -9,21 +9,17 @@ import android.provider.MediaStore
 import android.util.Log
 import android.webkit.MimeTypeMap
 import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
-import com.example.lostandfound3.R
 import com.example.lostandfound3.activities.models.User
 import com.example.lostandfound3.activities.utils.constants
 import com.example.lostandfound3.firebase.FirebaseStore
+import com.example.lostandfound3.R
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 import java.io.IOException
-import java.lang.System.load
-import java.util.jar.Manifest
 
 
 class MyProfileActivity : BaseActivity() {
@@ -64,7 +60,7 @@ class MyProfileActivity : BaseActivity() {
                 iv_user_image.setImageURI(mSelectedImageFileUri).toString()
                 uploadUserImage()
             } else{
-              
+
                 updateUserProfileData()
             }
         }

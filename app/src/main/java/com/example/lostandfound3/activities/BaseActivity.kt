@@ -3,7 +3,6 @@ package com.example.lostandfound3.activities
 import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Message
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.example.lostandfound3.R

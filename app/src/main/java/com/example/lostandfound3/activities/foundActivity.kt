@@ -4,28 +4,20 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.webkit.MimeTypeMap
-import android.widget.Button
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
-import com.example.lostandfound3.R
-import com.example.lostandfound3.R.id
-import com.example.lostandfound3.activities.models.User
 import com.example.lostandfound3.activities.models.found
+import com.example.lostandfound3.R
 import com.example.lostandfound3.databinding.ActivityFoundBinding
-import com.example.lostandfound3.databinding.ActivityMainBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
-import de.hdodenhof.circleimageview.CircleImageView
 import java.io.IOException
 
 class foundActivity :BaseActivity() {
@@ -36,12 +28,12 @@ class foundActivity :BaseActivity() {
     private lateinit var database:DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=ActivityFoundBinding.inflate(layoutInflater)
+        binding= ActivityFoundBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.ADD2.setOnClickListener {
             showProgressDialog("please wait")
             if(mSelectedImageFileUri2!=null){
-                val iv_user_image:de.hdodenhof.circleimageview.CircleImageView=findViewById(id.iv_board_image)
+                val iv_user_image:de.hdodenhof.circleimageview.CircleImageView=findViewById(R.id.iv_board_image)
                 iv_user_image.setImageURI(mSelectedImageFileUri2).toString()
                 uploadUserImage()
             }
@@ -66,7 +58,7 @@ class foundActivity :BaseActivity() {
 
 
     private fun setupActionBar(){
-        val tool_my_profile_activity:androidx.appcompat.widget.Toolbar=findViewById(id.toolbar_board_activity2)
+        val tool_my_profile_activity:androidx.appcompat.widget.Toolbar=findViewById(R.id.toolbar_board_activity2)
         setSupportActionBar(tool_my_profile_activity)
         val actionBar=supportActionBar
         if (actionBar!=null){
@@ -86,7 +78,7 @@ class foundActivity :BaseActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if(resultCode== Activity.RESULT_OK&&requestCode== MyProfileActivity.PICK_IMAGE_REQUEST_CODE &&data!!.data!=null)
         {
-            val iv_user_image:de.hdodenhof.circleimageview.CircleImageView=findViewById(id.iv_board_image)
+            val iv_user_image:de.hdodenhof.circleimageview.CircleImageView=findViewById(R.id.iv_board_image)
             mSelectedImageFileUri2=data.data
             try {
                 Glide

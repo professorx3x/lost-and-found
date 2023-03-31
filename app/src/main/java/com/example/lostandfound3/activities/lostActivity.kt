@@ -4,23 +4,17 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
-import android.view.View
 import android.webkit.MimeTypeMap
-import android.widget.Button
 import android.widget.Toast
-import androidx.activity.result.ActivityResult
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
-import com.example.lostandfound3.R
-import com.example.lostandfound3.activities.models.found
+
 import com.example.lostandfound3.activities.models.lost
-import com.example.lostandfound3.data.model.lostModel
-import com.example.lostandfound3.databinding.ActivityFoundBinding
+import com.example.lostandfound3.R
 import com.example.lostandfound3.databinding.ActivityLostBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase

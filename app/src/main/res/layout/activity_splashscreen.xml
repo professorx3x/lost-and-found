@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="activities.splashscreen"
-    android:background="@drawable/lost"
+    android:background="@color/colorOrange"
     android:orientation="vertical"
     >
+    
 
 </LinearLayout>

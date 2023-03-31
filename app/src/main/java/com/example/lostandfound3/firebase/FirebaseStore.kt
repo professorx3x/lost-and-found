@@ -10,10 +10,8 @@ import com.example.lostandfound3.activities.newsignup
 import com.example.lostandfound3.activities.signin
 import com.example.lostandfound3.activities.utils.constants
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
-import com.google.firebase.ktx.Firebase
 
 class FirebaseStore{
     private val mFireStore=FirebaseFirestore.getInstance()

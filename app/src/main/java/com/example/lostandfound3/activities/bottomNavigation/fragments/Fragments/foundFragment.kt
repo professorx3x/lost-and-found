@@ -8,11 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.lostandfound3.R
-import com.example.lostandfound3.activities.models.FetchLost
 import com.example.lostandfound3.activities.models.Fetchfound
 import com.example.lostandfound3.activities.models.MyAdapterFound
-import com.example.lostandfound3.activities.models.MyAdapterLost
 import com.google.firebase.database.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -47,7 +44,7 @@ class foundFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_found, container, false)
+        return inflater.inflate(com.example.lostandfound3.R.layout.fragment_found, container, false)
     }
 
     companion object {
@@ -71,7 +68,7 @@ class foundFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?){
         super.onViewCreated(view, savedInstanceState)
-        recyclerView=view.findViewById(R.id.Recyclerview_found)
+        recyclerView=view.findViewById(com.example.lostandfound3.R.id.Recyclerview_found)
         recyclerView.layoutManager=LinearLayoutManager(context)
         recyclerView.setHasFixedSize(true)
         usersArrayList= arrayListOf()

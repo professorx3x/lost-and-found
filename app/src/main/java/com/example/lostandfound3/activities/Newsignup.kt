@@ -4,12 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Button
-import android.widget.DatePicker
-import android.widget.TextView
 import android.widget.Toast
-import com.example.lostandfound3.R
 import com.example.lostandfound3.activities.models.User
 import com.example.lostandfound3.firebase.FirebaseStore
+import com.example.lostandfound3.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import java.util.Calendar

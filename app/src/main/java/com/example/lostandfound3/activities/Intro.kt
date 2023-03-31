@@ -4,9 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import com.example.lostandfound3.R
 import com.example.lostandfound3.activities.newsignup
 import com.example.lostandfound3.activities.signin
+import com.example.lostandfound3.R
 
 
 class intro : AppCompatActivity() {

@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.lostandfound3.R
 import com.example.lostandfound3.activities.models.*
 import com.google.firebase.database.*
 
@@ -44,7 +43,7 @@ class recoveredFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recoverd, container, false)
+        return inflater.inflate(com.example.lostandfound3.R.layout.fragment_recoverd, container, false)
     }
 
     companion object {
@@ -68,7 +67,7 @@ class recoveredFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?){
         super.onViewCreated(view, savedInstanceState)
-        recyclerView=view.findViewById(R.id.Recyclerview_recovered)
+        recyclerView=view.findViewById(com.example.lostandfound3.R.id.Recyclerview_recovered)
         recyclerView.layoutManager=LinearLayoutManager(context)
         recyclerView.setHasFixedSize(true)
         usersArrayList= arrayListOf()

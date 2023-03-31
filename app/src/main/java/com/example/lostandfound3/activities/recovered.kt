@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -13,10 +12,8 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
-import com.example.lostandfound3.R
-import com.example.lostandfound3.activities.models.lost
 import com.example.lostandfound3.activities.models.recoveredData
-import com.example.lostandfound3.databinding.ActivityLostBinding
+import com.example.lostandfound3.R
 import com.example.lostandfound3.databinding.ActivityRecoveredBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -26,7 +23,7 @@ import java.io.IOException
 class recovered : BaseActivity() {
     private var mSelectedImageFileUri2: Uri?=null
     private var mProfileImageURL:String=""
-    private lateinit var binding:ActivityRecoveredBinding
+    private lateinit var binding: ActivityRecoveredBinding
 
     private lateinit var database:DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
